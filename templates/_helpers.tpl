@@ -181,7 +181,11 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- if .Values.secrets.htpasswd }}
 - name: auth
   secret:
+    {{- if .Values.secrets.htpasswd.secretName }}
+    secretName: {{ .Values.secrets.htpasswd.secretName }}
+    {{- else }}
     secretName: {{ template "docker-registry.fullname" . }}-secret
+    {{- end }}
     items:
     - key: htpasswd
       path: htpasswd
