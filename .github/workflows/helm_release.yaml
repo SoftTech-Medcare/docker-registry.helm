@@ -1,7 +1,9 @@
 name: Release Charts
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   release:
@@ -18,18 +20,8 @@ jobs:
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-      
-      - name: Install chart-releaser
-        uses: helm/chart-releaser-action@v1.6.0
-        with:
-          install_only: true
 
       - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.6.0
         env:
-          CR_TOKEN: "${{ secrets.CR_TOKEN }}"
-        run: |
-          owner=$(cut -d '/' -f 1 <<< "$GITHUB_REPOSITORY")
-          repo=$(cut -d '/' -f 2 <<< "$GITHUB_REPOSITORY")
-          cr package
-          cr upload --owner="$owner" --git-repo "$repo" --token="$CR_TOKEN" --release-name-template="v{{ .Version }}" --packages-with-index --push --skip-existing --generate-release-notes --commit main
-          cr index --owner="$owner" --git-repo "$repo" --token="$CR_TOKEN" --release-name-template="v{{ .Version }}" --packages-with-index --push --index-path="."
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
