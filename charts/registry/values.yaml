@@ -173,9 +173,7 @@ containerSecurityContext:
 
 securityContext:
   enabled: true
-  fsGroupChangePolicy: Always
-  sysctls: []
-  supplementalGroups: []
+  runAsUser: 1000
   fsGroup: 1000
 
 priorityClassName: ""
