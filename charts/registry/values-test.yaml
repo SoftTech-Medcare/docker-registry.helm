@@ -1,0 +1,24 @@
+storage: filesystem
+persistence:
+  enabled: "true"
+  size: "2Gi"
+  deleteEnabled: true
+#  storageClass: "default-sotrage-class-1"
+secrets:
+  htpasswd:
+    secretName: registry-secret
+service:
+  annotations:
+    projectcontour.io/upstream-protocol.tls: '5000'
+# extraVolumeMounts:
+#   - name: clean-config
+#     mountPath: /opt/registry-cleaning
+
+# extraVolumes:
+#   - name: clean-config
+#     configMap:
+#       name: registry-clean-config
+
+garbageCollect:
+  enabled: true
+  schedule: "0 1 * * *" # daily at 1 am
