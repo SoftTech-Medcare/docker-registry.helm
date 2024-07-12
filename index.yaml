@@ -3,6 +3,23 @@ entries:
   docker-registry:
   - apiVersion: v1
     appVersion: 2.8.1
+    created: "2024-07-12T03:27:17.889262206Z"
+    description: A Helm chart for Docker Registry
+    digest: b4423ad7e343e6e1a283b1195b5113cd20fb6cd504bd59a260eb06bed8272f0e
+    home: https://hub.docker.com/_/registry/
+    icon: https://helm.twun.io/docker-registry.png
+    maintainers:
+    - email: devin@canterberry.cc
+      name: Devin Canterberry
+      url: https://canterberry.cc/
+    name: docker-registry
+    sources:
+    - https://github.com/docker/distribution-library-image
+    urls:
+    - https://github.com/SoftTech-Medcare/docker-registry.helm/releases/download/docker-registry-2.2.8/docker-registry-2.2.8.tgz
+    version: 2.2.8
+  - apiVersion: v1
+    appVersion: 2.8.1
     created: "2024-07-12T03:03:32.196869693Z"
     description: A Helm chart for Docker Registry
     digest: e87d2c29bf0e28baa3b081a0f4271d8c651faf94f8fd700932ee76ce67994f74
@@ -86,4 +103,4 @@ entries:
     urls:
     - https://github.com/SoftTech-Medcare/docker-registry.helm/releases/download/docker-registry-2.2.3/docker-registry-2.2.3.tgz
     version: 2.2.3
-generated: "2024-07-12T03:03:32.196893007Z"
+generated: "2024-07-12T03:27:17.889284648Z"
